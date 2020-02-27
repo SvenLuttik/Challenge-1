@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="style.css" type="text/css">
         <title>Challenge 1</title>
+        
     </head>
     
     <body>
@@ -15,23 +16,19 @@
         <main>
            <article>
                 <h2>Afstand</h2>
-                
+                <canvas id="distance"></canvas>
             </article>
             <article>
                 <h2>Snelheid</h2>
-                <script src="https://www.amcharts.com/lib/4/core.js"></script>
-                <script src="https://www.amcharts.com/lib/4/charts.js"></script>
-                <script src="https://www.amcharts.com/lib/4/themes/dataviz.js"></script>
-                <script src="https://www.amcharts.com/lib/4/themes/animated.js"></script>
-                <div id="chartdiv"></div>
+                <div id="speed" class="chartdiv"></div>
             </article>	
             <article>
                 <h2>Zwaartekracht</h2>
-                <div id="chartdiv"></div>
+                <div id="gravity" class="chartdiv"></div>
             </article>		
         </main>
         
     </body>
     <script src="mainscript.js"></script>
-    
+    <script src="charts.js"></script>
 </html>
