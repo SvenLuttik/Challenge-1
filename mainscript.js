@@ -1,69 +1,156 @@
-window.onload = function () {
-
-/*          zwaartekracht          */
+function functionDistance(){
     
-var chart = new CanvasJS.Chart("gravity", {
-	exportEnabled: true,
-	animationEnabled: true,
-	axisX: {
-		title: "Zwaartekracht in Newton"
-	},
-	
-	axisY2: {
-		title: "Units",
-		titleFontColor: "#000",
-		lineColor: "#C0504E",
-		labelFontColor: "#C0504E",
-		tickColor: "#fff"
-	},
-	toolTip: {
-		shared: true
-	},
-	legend: {
-		cursor: "pointer",
-		itemclick: toggleDataSeries
-	},
-	data: [{
-		type: "column",
-		name: "Zwartekracht",
-		showInLegend: true,      
-		yValueFormatString: "#,##0.# Newton",
-		dataPoints: [
-			{ label: "Aarde",  y: 9.807 },
-			{ label: "Shuttle", y: 0.20 },
-			{ label: "Mars", y: 3.711 },
-		]
-	},
-]
-});
-chart.render();
+    //Dit is de code voor de afstand
+    var distanceChart = document.getElementById('distance').getContext('2d');
 
-function toggleDataSeries(e) {
-	if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
-		e.dataSeries.visible = false;
-	} else {
-		e.dataSeries.visible = true;
-	}
-	e.chart.render();
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
+
+    var massPopChart = new Chart(distanceChart, {
+      type:'horizontalBar',
+      data:{
+        labels:['Shuttle'],
+        datasets:[{
+          label:'KM',
+          data:[
+            270//dit is de huide afstand van de shuttle.
+          ],
+          backgroundColor:[
+            '#27ae60'
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display:false
+        },
+        scales:{
+          xAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true,
+                steps: 100,
+                stepValue: 5,
+                max: 400
+            }
+        }]
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+    
+    
 }
 
-/*          Snelheid          */
+function functionSpeed(){
+    
+    //Dit is de code voor de snelheid
+    
+    var speedChart = document.getElementById('speed').getContext('2d');
 
-var chart = new CanvasJS.Chart("speed", {
-	animationEnabled: true,
-	title:{
-		horizontalAlign: "left"
-	},
-	data: [{
-		type: "doughnut",
-		startAngle: 180,
-		//innerRadius: 60,
-		dataPoints: [
-			{ y: 5, label: "current speed"},
-			{ y: 6, label: "top speed"}
-		]
-	}]
-});
-chart.render();
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
 
+    var massPopChart = new Chart(speedChart, {
+      type:'doughnut',
+      data:{
+        labels:['Current-speed', 'Max-speed'],
+        datasets:[{
+          label:'km/h',
+          data:[
+            450,//Dit side snelheid die je kan aanpassen
+            500//max-snelheid in km/h
+          ],
+          backgroundColor:[
+            '#2980b9',
+            '#000'
+          ]
+        }]
+      },
+      options:{
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        rotation: 1 * Math.PI,
+        circumference: 1 * Math.PI
+      }
+    });
+    
 }
+
+function functionGravity(){
+    
+    //Dit is de code voor de zwaartekracht
+    
+    var gravityChart = document.getElementById('gravity').getContext('2d');
+
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
+
+    var massPopChart = new Chart(gravityChart, {
+      type:'bar',
+      data:{
+        labels:['Aarde', 'Shuttle', 'Mars'],
+        datasets:[{
+          label:'Newton',
+          data:[
+            9.807,
+            1.201,//Waarde van de shuttle. Je kan het veranderen
+            3.711
+          ],
+          backgroundColor:[
+            '#2980b9',
+            '#27ae60',
+            '#c0392b'
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Zwaartekracht in Newton'
+        },
+        scales:{
+          yAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true
+            }
+        }]
+        },
+        legend:{
+          display:false,
+          position:'right',
+          labels:{
+            fontColor:'#000'
+          }
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+    
+}
+
+function start(){
+    functionDistance();
+    functionSpeed();
+    functionGravity();
+}
+
+window.onload = start(); 
+
