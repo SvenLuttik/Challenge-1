@@ -13,7 +13,7 @@ function functionDistance(){
         datasets:[{
           label:'KM',
           data:[
-            270//dit is de huide afstand van de shuttle.
+            270//dit is de huidige afstand van de shuttle. Voel vrij om de afstand te veranderen.
           ],
           backgroundColor:[
             '#27ae60'
@@ -30,30 +30,23 @@ function functionDistance(){
             ticks: {
                 beginAtZero: true,
                 steps: 100,
-                stepValue: 5,
                 max: 400
             }
-        }]
+          }]
         },
         legend:{
-          display:false,
-          position:'right',
-          labels:{
-            fontColor:'#000'
-          }
+          display:false
         },
         tooltips:{
           enabled:true
         }
       }
-    });
-    
-    
+    });   
 }
 
 function functionSpeed(){
     
-    //Dit is de code voor de snelheid
+    //Dit is de code voor de snelheid. 
     
     var speedChart = document.getElementById('speed').getContext('2d');
 
@@ -132,11 +125,62 @@ function functionGravity(){
         }]
         },
         legend:{
-          display:false,
-          position:'right',
-          labels:{
-            fontColor:'#000'
-          }
+          display:false
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });
+    
+}
+
+function functionOxygen(){
+    
+    //zuurstof gehalte per cabine. is niet relevant voor mobiel dus is pas vanaf tablet te zien
+    
+    var oxygenChart = document.getElementById('oxygen').getContext('2d');
+
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
+
+    var massPopChart = new Chart(oxygenChart, {
+      type:'bar',
+      data:{
+        labels:['Cockpit', 'firstclass', 'businessclass'],
+        datasets:[{
+          label:'O',
+          data:[
+              
+            //Hier kan je de zuurstof waarde aan passen per cabine.
+            96,
+            83,
+            79
+          ],
+          backgroundColor:[
+            '#f1c40f',
+            '#f3cf3f',
+            '#f5d865'
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Zuurstofpercentage per cabine'
+        },
+        scales:{
+          yAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true,
+                steps: 20,
+                max: 100
+            }
+          }]
+        },
+        legend:{
+          display:false
         },
         tooltips:{
           enabled:true
@@ -150,7 +194,7 @@ function start(){
     functionDistance();
     functionSpeed();
     functionGravity();
+    functionOxygen();
 }
 
-window.onload = start(); 
-
+window.onload = start();

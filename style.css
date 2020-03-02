@@ -1,9 +1,9 @@
-@font-face {font-family: headfont; src: url(fonts/Brandon_thin.otf);}
+@font-face {font-family: brandon; src: url(fonts/Brandon_thin.otf);}
 
 body{
     margin: 0;
     width: 100%;
-    font-family: Helvetica, sans-serif;
+    font-family:sans-serif;
 }
 
 header{
@@ -16,7 +16,7 @@ header{
 
 main{
     margin: auto;
-    width: 100%;
+    width: 95%;
     padding: 2%;
     padding-top: 100px;
     display: flex;
@@ -31,13 +31,17 @@ article{
     margin-bottom: 15px;
 }
 
+#zuurstof{
+    display: none;
+}
+
 canvas{
     width: 350px;
     height: 350px;
 }
 
 h2{
-    font-family: headfont;
+    font-family: brandon;
     text-transform: uppercase;
     color: #fff;
 }
@@ -53,3 +57,42 @@ figure{
     height: 350px;
 }
 
+
+/* --- tablet --- */
+@media (min-width: 600px) { 
+    html {
+        height: 100%;
+    }
+    
+    body {
+        background: url(images/bg.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    main{
+        flex-wrap: wrap;
+        flex-direction: row;    
+    }
+        
+    article{
+        width: 40%;
+    }
+    
+    #zuurstof{
+        display: block;
+    }
+}
+
+
+/* --- desktop-small --- */
+@media (min-width: 1200px) { 
+    
+}
+
+/* --- desktop-large --- */
+@media (min-width: 1800px) { 
+
+}
+
+    
