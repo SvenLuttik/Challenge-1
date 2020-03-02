@@ -35,9 +35,12 @@ article{
     display: none;
 }
 
-canvas{
-    width: 350px;
-    height: 350px;
+#voorraad{
+    display: none;
+}
+
+#gkracht{
+    display: none;
 }
 
 h2{
@@ -86,7 +89,23 @@ figure{
 
 
 /* --- desktop-small --- */
-@media (min-width: 1200px) { 
+@media (min-width: 1200px) {
+    article{
+        width: 30%;
+    }
+    
+    canvas {
+        width: 400px !important;
+        height: 200px!important;
+    }
+    
+    #voorraad{
+        display: block;
+    }
+    
+    #gkracht{
+        display: block;
+    }
     
 }
 

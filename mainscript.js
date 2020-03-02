@@ -174,7 +174,6 @@ function functionOxygen(){
             display: true,
             ticks: {
                 beginAtZero: true,
-                steps: 20,
                 max: 100
             }
           }]
@@ -190,11 +189,121 @@ function functionOxygen(){
     
 }
 
+function functionStock(){
+    
+    //Dit is de code voor de voorraad
+    var stockChart = document.getElementById('stock').getContext('2d');
+
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
+
+    var massPopChart = new Chart(stockChart, {
+      type:'horizontalBar',
+      data:{
+        labels:['Voedsel', 'Water'],
+        datasets:[{
+          label:'',
+          data:[
+            72,
+            89
+          ],
+          backgroundColor:[
+            '#27ae60',
+            '#2980b9'
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display:true,
+          text:'Voorraad percentage'
+        },
+        scales:{
+          xAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true,
+                steps: 10,
+                max: 100
+            }
+          }]
+        },
+        legend:{
+          display:false
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });   
+}
+
+function functionGforce(){
+    
+    //Dit is de code voor de G kracht
+    var gforceChart = document.getElementById('gforce').getContext('2d');
+
+    Chart.defaults.global.defaultFontSize = 16;
+    Chart.defaults.global.defaultFontColor = '#fff';
+
+    var massPopChart = new Chart(gforceChart, {
+      type:'line',
+      data:{
+        labels:['Lancering', 'Atmosfeer','Reis','Landing'],
+        datasets:[{
+          label:'',
+          data:[
+              
+            // G kracht van momenten tijdens de vlucht. voel vrij om de waardes aan te passen.
+            7.2,
+            8.9,
+            1.3,
+            6.2
+          ],
+          borderWidth:1,
+          borderColor:'#fff',
+          backgroundColor:[
+            '#c0392b',
+            '#c0392b',
+            '#c0392b',
+            '#c0392b',
+            'rgba(231, 76, 60,0.5)'
+            
+          ]
+        }]
+      },
+      options:{
+        title:{
+          display:false
+        },
+        scales:{
+          yAxes: [{
+            display: true,
+            ticks: {
+                beginAtZero: true,
+                steps: 10,
+                max: 10
+            }
+          }]
+        },
+        legend:{
+          display:false
+        },
+        tooltips:{
+          enabled:true
+        }
+      }
+    });   
+}
+
+//hier toep ik alle functies op wanneer de pagina laad
 function start(){
     functionDistance();
     functionSpeed();
     functionGravity();
     functionOxygen();
+    functionStock();
+    functionGforce();
 }
 
 window.onload = start();
