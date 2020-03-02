@@ -111,7 +111,13 @@ figure{
 
 /* --- desktop-large --- */
 @media (min-width: 1800px) { 
-
+    main{
+        width: 1500px;
+    }
+    
+    article{
+        width: 400px;
+    }
 }
 
     
