@@ -55,11 +55,6 @@ figure{
     padding: 30px;
 }
 
-.chartdiv {
-    width: 100%;
-    height: 350px;
-}
-
 
 /* --- tablet --- */
 @media (min-width: 600px) { 
@@ -118,6 +113,7 @@ figure{
     article{
         width: 400px;
     }
+    
 }
 
     
