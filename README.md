@@ -46,7 +46,7 @@ Door de code telkens weer te copieëren en te plakken en vervolgens deze waarden
       labels:['Aarde', 'Shuttle', 'Mars'],
 ```
 ```
-      tdata:[
+      data:[
             9.807,
             1.201,//Waarde van de shuttle. Je kan het veranderen
             3.711
